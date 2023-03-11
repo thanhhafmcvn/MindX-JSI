@@ -15,13 +15,16 @@ const Main = () => {
     getData().then((data) => setApiResponse(data));
   }, []);
   const testAPI = console.log(apiResponse);
+  const totalCases = apiResponse.Global.TotalConfirmed;
+  const totalDeaths = apiResponse.Global.TotalDeaths;
+  const totalRecovered = apiResponse.Global.TotalRecovered;
   return (
     <div>
       <h1>{testAPI}</h1>
       <Information
-        cases={toLocaleString(apiResponse.Global.TotalConfirmed)}
-        deaths={toLocaleString(apiResponse.Global.TotalDeaths)}
-        recovered={toLocaleString(apiResponse.Global.TotalRecovered)}
+        cases={totalCases}
+        deaths={totalDeaths}
+        recovered={totalRecovered}
       />
     </div>
   );
